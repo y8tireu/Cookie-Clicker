@@ -1,0 +1,43 @@
+function activateAllHacks() {
+  // Give a large amount of cookies
+  cookies += 1000000;
+
+  // Increase cookies per second drastically
+  cookiesPerSecond = 100000;
+
+  // Set upgrade costs to 1
+  cursorCost = 1;
+  grandmaCost = 1;
+  farmCost = 1;
+
+  // Max out upgrades
+  cursors += 100;
+  grandmas += 100;
+  farms += 100;
+  cookiesPerSecond += (100 * 0.1) + (100 * 1) + (100 * 5);
+
+  // Spawn a golden cookie instantly
+  spawnGoldenCookie();
+
+  // Auto-clicker that clicks the cookie every 100ms
+  setInterval(() => {
+    cookies++;
+    updateCookieCount();
+  }, 100);
+
+  // Auto-buyer that purchases upgrades every second
+  setInterval(() => {
+    if (cookies >= cursorCost) buyUpgrade('cursor');
+    if (cookies >= grandmaCost) buyUpgrade('grandma');
+    if (cookies >= farmCost) buyUpgrade('farm');
+  }, 1000);
+
+  // Update display with all changes
+  updateCookieCount();
+
+  alert("All hacks activated! Enjoy unlimited cookies and upgrades.");
+}
+
+// Run this command to activate all hacks
+activateAllHacks();
+
